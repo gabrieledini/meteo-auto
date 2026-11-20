@@ -8,3 +8,6 @@ local.properties
 /gradle/wrapper/gradle-wrapper.properties
 /gradlew
 /gradlew.bat
+
+# Report di bug del telefono (dati personali)
+log-smartphone/
