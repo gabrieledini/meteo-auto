@@ -25,6 +25,8 @@ object Http {
         val c = URL(url).openConnection() as HttpURLConnection
         c.connectTimeout = 10_000
         c.readTimeout = 10_000
+        // Open-Meteo risponde 403 allo user agent predefinito di Android ("Dalvik/...")
+        c.setRequestProperty("User-Agent", "MeteoToscana/2.0 (Android)")
         try {
             if (c.responseCode !in 200..299) throw IOException("HTTP ${c.responseCode}")
             return c.inputStream.bufferedReader().use { it.readText() }
